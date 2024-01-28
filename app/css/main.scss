@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+body {
+    font-family: 'Open+Sans' sans-serif;
+    font-weight: 400;
+}
+
+$greencolor: green;
+$fontweight700: 700;
+
+* {
+    outline: none;
+  }
+  
+  a {
+    text-decoration: none;
+  
+    &:hover {
+      text-decoration: none;
+    }
+}
+
+.flex {
+    display: flex;
+    justify-content: space-between; // розкидати об'єкти по різних сторонах
+}
+
+.block-one {
+    display: flex;
+    padding: 15px 100px;
+
+    @media (max-width: 699px) {
+        flex-wrap: wrap;
+    }
+
+    .header-info {
+        margin-right: 50px;
+
+        .header-info-main-text {
+            color: $greencolor;
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        .header-desc-text {
+            font-size: 15px;
+            flex-wrap: nowrap;
+        }
+
+        .header-button {
+            margin-top: 20px;
+            color: white;
+            background-color: aqua;
+            border: none;
+            border-radius: 25px;
+        }
+    }
+
+    .header-img {
+        
+    }
+
+    .header-info, .header-img, .header-button {
+
+    }
+}
+
+
+.about-me {
+    margin-top: 100px;
+    @extend .flex;
+  
+    .block {
+      @extend .flex;
+      align-items: center;
+      color: #a0a0a0;
+  
+      .order-mobile {
+        img {
+          border-radius: 15%;
+          padding: 0;
+        }
+      }
+  
+      .info {
+        h1 {
+          color: $greencolor;
+          font-size: 56px;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+  
+        .desc {
+          font-size: 24px;
+        }
+  
+        .tech {
+          display: flex;
+          flex-direction: row;
+        }
+      }
+  
+      @media(max-width: 780px) {
+        .order-mobile {
+          order: 2;
+          margin-top: 30px;
+        }
+  
+        flex-wrap: wrap;
+      }
+  
+      > div {
+        width: 100%;
+        text-align: center;
+      }
+  
+      .info {
+        @media(min-width: 781px) {
+          max-width: 700px;
+        }
+      }
+    }
+  }
