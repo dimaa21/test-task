@@ -1,11 +1,16 @@
+// Підключення основного шрифта
+
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+// Загальні стилі
 
 body {
     font-family: 'Open+Sans' sans-serif;
     font-weight: 400;
 }
 
-$greencolor: green;
+$greencolor: #7fff00;
+$blackcolor: black;
 $fontweight700: 700;
 
 * {
@@ -25,49 +30,10 @@ $fontweight700: 700;
     justify-content: space-between; // розкидати об'єкти по різних сторонах
 }
 
+// Перший блок
+
 .block-one {
-    display: flex;
-    padding: 15px 100px;
-
-    @media (max-width: 699px) {
-        flex-wrap: wrap;
-    }
-
-    .header-info {
-        margin-right: 50px;
-
-        .header-info-main-text {
-            color: $greencolor;
-            font-weight: 700;
-            font-size: 20px;
-        }
-
-        .header-desc-text {
-            font-size: 15px;
-            flex-wrap: nowrap;
-        }
-
-        .header-button {
-            margin-top: 20px;
-            color: white;
-            background-color: aqua;
-            border: none;
-            border-radius: 25px;
-        }
-    }
-
-    .header-img {
-        
-    }
-
-    .header-info, .header-img, .header-button {
-
-    }
-}
-
-
-.about-me {
-    margin-top: 100px;
+    margin-top: 20px;
     @extend .flex;
   
     .block {
@@ -76,16 +42,25 @@ $fontweight700: 700;
       color: #a0a0a0;
   
       .order-mobile {
+        order: 2;
+
         img {
-          border-radius: 15%;
           padding: 0;
+          flex-basis: 400px;
+
+          @media(max-width: 1200px) {
+            width: 90%;
+          }
         }
       }
   
       .info {
+        order: 1;
+        flex-basis: 1500px;
+
         h1 {
           color: $greencolor;
-          font-size: 56px;
+          font-size: 25px;
           font-weight: 600;
           text-transform: uppercase;
         }
@@ -93,31 +68,260 @@ $fontweight700: 700;
         .desc {
           font-size: 24px;
         }
-  
-        .tech {
-          display: flex;
-          flex-direction: row;
-        }
       }
+
+      .button-block-one {
+        display: flex;
+        background-color: #3498db;
+        color: #ffffff; 
+        text-align: center;
+        border: none;
+
+        border-radius: 50px;
+        font-size: 20px;
+        padding: 10px 20px;
+
+        transition: background-color 0.3s, color 0.3s, transform 0.3s;
+
+        &:hover {
+            background-color: black;
+            color: #ffffff;
+            transform: translateY(-4px);
+            cursor: pointer;
+        }
+
+        a {
+          color: white;
+        }
+
+        @media(max-width: 1201px) {
+          margin: 0 auto;
+          display: block;
+      }
+    }
   
-      @media(max-width: 780px) {
+      @media(max-width: 1200px) {
         .order-mobile {
           order: 2;
           margin-top: 30px;
         }
-  
+        
+        text-align: center;
+        justify-content: center;
         flex-wrap: wrap;
       }
   
       > div {
         width: 100%;
-        text-align: center;
       }
   
       .info {
-        @media(min-width: 781px) {
-          max-width: 700px;
+        @media(min-width: 1201px) {
+          max-width: 1200px;
         }
       }
     }
   }
+
+  // Другий блок
+
+  .block-two {
+    margin-top: 100px;
+  
+    .block-2 {
+      .main-text-block-two {
+        text-align: center;
+        color: $greencolor;
+        text-transform: uppercase;
+        font-weight: $fontweight700;
+        font-size: 30px;
+        background-color: $blackcolor;  
+      }
+    }
+  
+    .block-size {
+      padding-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    
+      @media screen and (max-width: 999px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 50px;
+      }
+    }
+  
+    .size-m, .size-xl, .size-xxl {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: center;
+      padding: 10px;
+      border: 1px solid #ddd;
+      background-color: grey;
+      transition: transform 0.3s, background-color 0.3s, color 0.3s; 
+      &:hover {
+        transform: translateY(-5px) scale(1.1);
+        background-color: #3498db;
+        color: $blackcolor;
+  
+        h1 {
+          color: $blackcolor;
+          transition: color 0.7s;
+        }
+
+        h6 {
+          color: $greencolor;
+          transition: color 0.7s;
+        }
+      }
+  
+      h1 {
+        margin: -70px 50px 0 0;
+        font-size: 100px;
+        font-weight: 700;
+        color: $greencolor;
+      }
+  
+      h6 {
+        margin-left: 5px;
+        font-weight: 700;
+        color: $blackcolor;
+      }
+    }
+  
+    .size-l {
+      color: $blackcolor;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: center;
+      padding: 10px;
+      border: 1px solid #ddd;
+      background-color: grey;
+      transition: transform 0.3s, background-color 0.3s, color 0.3s; 
+
+      h1 {
+        margin: -70px 50px 0 0;
+        font-size: 100px;
+        font-weight: 700;
+        color: $blackcolor;
+      }
+  
+      &:hover {
+        transform: translateY(-5px) scale(1.1);
+        background-color: #3498db;
+        color: $blackcolor;
+
+        h1 {
+          color: $greencolor;
+          transition: color 0.7s;
+        }
+  
+        h6 {
+          background-color: #3498db;
+          color: $blackcolor;
+          transition: color 0.7s;
+        }
+      }
+  
+      h6 {
+        color: $greencolor;
+        font-weight: 700;
+  
+        &:hover {
+          color: $blackcolor;
+        }
+      }
+    }
+  }
+  
+  // Третій блок
+
+  .block-three {
+    margin: 100px 0;
+  
+    .block-3 {
+      .main-text-block-three {
+        text-align: center;
+        color: $greencolor;
+        text-transform: uppercase;
+        font-weight: $fontweight700;
+        font-size: 30px;
+        background-color: $blackcolor;
+      }
+    }
+  
+    .block-map {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      gap: 20px;
+      background: url(/public/img/map-block.png) no-repeat;
+      width: 100%;
+      margin-left: -10px;
+  
+      h2 {
+        font-weight: $fontweight700;
+        margin: 25px 0 -10px;
+      }
+  
+      img {
+        width: 100%;
+        transition: transform 0.3s;
+  
+        &:hover {
+          transform: scale(1.05);
+        }
+      }
+    }
+  
+    .block-1, .block-2, .block-3 {
+      padding: 15px;
+      text-align: center;
+      font-weight: $fontweight700;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+  
+    .materik-one, .materik-two, .materik-three {
+      .button-map {
+        display: flex;
+        background-color: #3498db;
+        color: #ffffff;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        margin: 20px auto;
+        border: none;
+        border-radius: 50px;
+        font-size: 20px;
+        padding: 10px 30px;
+        transition: background-color 0.3s, color 0.3s, transform 0.3s;
+  
+        &:hover {
+          background-color: black;
+          color: #ffffff;
+          transform: translateY(-4px);
+          cursor: pointer;
+        }
+  
+        a {
+          color: white;
+        }
+      }
+    }
+  
+    @media screen and (min-width: 768px) {
+      .block-map {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  
+    @media screen and (min-width: 1200px) {
+      .block-map {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+  }
+  
