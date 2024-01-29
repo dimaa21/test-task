@@ -12,6 +12,7 @@ body {
 $greencolor: #7fff00;
 $blackcolor: black;
 $fontweight700: 700;
+$bluecolor: #3498db;
 
 * {
     outline: none;
@@ -27,7 +28,42 @@ $fontweight700: 700;
 
 .flex {
     display: flex;
-    justify-content: space-between; // розкидати об'єкти по різних сторонах
+    justify-content: space-between;
+}
+
+// Кнопка 
+.button {
+  display: flex;
+  background-color: #3498db;
+  color: #ffffff; 
+  text-align: center;
+  border: none;
+
+  border-radius: 50px;
+  font-size: 20px;
+  padding: 10px 20px;
+
+  transition: background-color 0.3s, color 0.3s, transform 0.3s;
+
+  &:hover {
+      background-color: black;
+      color: #ffffff;
+      transform: translateY(-4px);
+      cursor: pointer;
+  }
+
+  a {
+    color: white;
+  }
+}
+
+.title {
+  text-align: center;
+  color: $greencolor;
+  text-transform: uppercase;
+  font-weight: $fontweight700;
+  font-size: 30px;
+  background-color: $blackcolor; 
 }
 
 // Перший блок
@@ -71,32 +107,11 @@ $fontweight700: 700;
       }
 
       .button-block-one {
-        display: flex;
-        background-color: #3498db;
-        color: #ffffff; 
-        text-align: center;
-        border: none;
+          @extend .button;
 
-        border-radius: 50px;
-        font-size: 20px;
-        padding: 10px 20px;
-
-        transition: background-color 0.3s, color 0.3s, transform 0.3s;
-
-        &:hover {
-            background-color: black;
-            color: #ffffff;
-            transform: translateY(-4px);
-            cursor: pointer;
-        }
-
-        a {
-          color: white;
-        }
-
-        @media(max-width: 1201px) {
-          margin: 0 auto;
-          display: block;
+          @media(max-width: 1201px) {
+            margin: 0 auto;
+            display: block;
       }
     }
   
@@ -130,12 +145,7 @@ $fontweight700: 700;
   
     .block-2 {
       .main-text-block-two {
-        text-align: center;
-        color: $greencolor;
-        text-transform: uppercase;
-        font-weight: $fontweight700;
-        font-size: 30px;
-        background-color: $blackcolor;  
+        @extend .title;
       }
     }
   
@@ -145,13 +155,13 @@ $fontweight700: 700;
       grid-template-columns: repeat(4, 1fr);
       gap: 20px;
     
-      @media screen and (max-width: 999px) {
+      @media screen and (max-width: 998px) {
         grid-template-columns: repeat(2, 1fr);
         gap: 50px;
       }
     }
   
-    .size-m, .size-xl, .size-xxl {
+    .size-m, .size-l, .size-xl, .size-xxl {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
@@ -160,46 +170,43 @@ $fontweight700: 700;
       border: 1px solid #ddd;
       background-color: grey;
       transition: transform 0.3s, background-color 0.3s, color 0.3s; 
+
       &:hover {
         transform: translateY(-5px) scale(1.1);
         background-color: #3498db;
         color: $blackcolor;
+
+        h1, h6 {
+          transition: color 0.7s;
+        }
   
         h1 {
           color: $blackcolor;
-          transition: color 0.7s;
         }
 
         h6 {
           color: $greencolor;
-          transition: color 0.7s;
         }
+      }
+
+      h1, h6 {
+        font-weight: 700;
       }
   
       h1 {
-        margin: -70px 50px 0 0;
+        margin: -70px 10px 0 0;
         font-size: 100px;
-        font-weight: 700;
         color: $greencolor;
       }
   
       h6 {
         margin-left: 5px;
-        font-weight: 700;
         color: $blackcolor;
       }
     }
   
     .size-l {
       color: $blackcolor;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      text-align: center;
-      padding: 10px;
-      border: 1px solid #ddd;
-      background-color: grey;
-      transition: transform 0.3s, background-color 0.3s, color 0.3s; 
 
       h1 {
         margin: -70px 50px 0 0;
@@ -210,18 +217,20 @@ $fontweight700: 700;
   
       &:hover {
         transform: translateY(-5px) scale(1.1);
-        background-color: #3498db;
+        background-color: $bluecolor;
         color: $blackcolor;
+        
+        h1, h6 {
+          transition: color 0.7s;
+        }
 
         h1 {
           color: $greencolor;
-          transition: color 0.7s;
         }
   
         h6 {
-          background-color: #3498db;
+          background-color: $bluecolor;
           color: $blackcolor;
-          transition: color 0.7s;
         }
       }
   
@@ -243,12 +252,7 @@ $fontweight700: 700;
   
     .block-3 {
       .main-text-block-three {
-        text-align: center;
-        color: $greencolor;
-        text-transform: uppercase;
-        font-weight: $fontweight700;
-        font-size: 30px;
-        background-color: $blackcolor;
+        @extend .title;
       }
     }
   
@@ -256,9 +260,19 @@ $fontweight700: 700;
       display: grid;
       grid-template-columns: repeat(1, 1fr);
       gap: 20px;
-      background: url(/public/img/map-block.png) no-repeat;
+      background: url(/public/img/map-world3.jpeg);
       width: 100%;
       margin-left: -10px;
+
+      @media screen and (min-width: 768px) {
+        background: url(/public/img/map-world3.jpeg) no-repeat; 
+     }
+
+     .desc-block-three {
+      color: yellowgreen;
+      font-weight: $fontweight700;
+      font-size: 15px;
+     }
   
       h2 {
         font-weight: $fontweight700;
@@ -296,7 +310,7 @@ $fontweight700: 700;
         border: none;
         border-radius: 50px;
         font-size: 20px;
-        padding: 10px 30px;
+        padding: 10px 20px;
         transition: background-color 0.3s, color 0.3s, transform 0.3s;
   
         &:hover {
@@ -308,6 +322,10 @@ $fontweight700: 700;
   
         a {
           color: white;
+        }
+
+        @media(max-width: 999px) {
+            padding: 5px;
         }
       }
     }
