@@ -260,12 +260,12 @@ $bluecolor: #3498db;
       display: grid;
       grid-template-columns: repeat(1, 1fr);
       gap: 20px;
-      background: url(/public/img/map-world3.jpeg);
+      background: url(./public/img/map-world3.jpeg);
       width: 100%;
       margin-left: -10px;
 
       @media screen and (min-width: 768px) {
-        background: url(/public/img/map-world3.jpeg) no-repeat; 
+        background: url(./public/img/map-world3.jpeg) no-repeat; 
      }
 
      .desc-block-three {
